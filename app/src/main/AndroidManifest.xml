@@ -16,6 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".itemActivity.RxCreateActivity"    />
+        <activity android:name=".itemActivity.RxMapActivity"    />
+        <activity android:name=".itemActivity.RxFlatMapActivity"    />
+        <activity android:name=".itemActivity.RxConcatMapActivity"    />
     </application>
 
 </manifest>
