@@ -20,6 +20,13 @@
         <activity android:name=".itemActivity.RxMapActivity"    />
         <activity android:name=".itemActivity.RxFlatMapActivity"    />
         <activity android:name=".itemActivity.RxConcatMapActivity"    />
+        <activity android:name=".itemActivity.RxZipActivity"    />
+        <activity android:name=".itemActivity.RxDoOnNextActivity"    />
+        <activity android:name=".itemActivity.RxConcatActivity"    />
+        <activity android:name=".itemActivity.RxJustActivity"    />
+        <activity android:name=".itemActivity.RxSingleActivity"    />
+        <activity android:name=".itemActivity.RxDistinctActivity"    />
+        <activity android:name=".itemActivity.RxFilterActivity"    />
     </application>
 
 </manifest>

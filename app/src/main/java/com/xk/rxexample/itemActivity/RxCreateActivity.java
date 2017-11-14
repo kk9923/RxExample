@@ -1,7 +1,6 @@
 package com.xk.rxexample.itemActivity;
 
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -27,7 +26,7 @@ public class RxCreateActivity extends ToolbarBaseActivity {
 
     @Override
     protected String getSubTitle() {
-        return "creat";
+        return "Creat";
     }
 
     @Override
@@ -42,25 +41,22 @@ public class RxCreateActivity extends ToolbarBaseActivity {
             public void onClick(View v) {
                 Observable.create(new ObservableOnSubscribe<Integer>() {
                     @Override
-                    public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
-                        SystemClock.sleep(2000);
+                    public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {   // ObservableEmitter  RxJava2.0  中的事件发送器
                         emitter.onNext(1);
-                        SystemClock.sleep(2000);
                         emitter.onNext(2);
                         emitter.onComplete();
                     }
                 })
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribeOn(Schedulers.io())    //  切换上游事件发送的线程     一般都是在子线程
+                        .observeOn(AndroidSchedulers.mainThread())   //  切换下游事件接受的线程      一般都是在主线程
                         .subscribe(new Observer<Integer>() {
                             @Override
                             public void onSubscribe(Disposable d) {
                                 RxCreateActivity.this.d = d;
                             }
-
                             @Override
                             public void onNext(Integer value) {
-                                rxOperatorsText.setText("" + value);
+                                rxOperatorsText.append("accept : onNext : " + value + "\n");
                             }
 
                             @Override
@@ -69,6 +65,7 @@ public class RxCreateActivity extends ToolbarBaseActivity {
 
                             @Override
                             public void onComplete() {
+
                             }
                         });
             }

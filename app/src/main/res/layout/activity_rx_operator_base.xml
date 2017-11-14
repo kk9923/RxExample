@@ -17,6 +17,7 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:layout_marginTop="10dp"
             android:id="@+id/rx_operators_text"
             style="@style/MyTextStyle"/>
 

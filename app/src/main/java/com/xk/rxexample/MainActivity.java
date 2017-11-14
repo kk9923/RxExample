@@ -9,10 +9,17 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.xk.rxexample.itemActivity.RxConcatActivity;
 import com.xk.rxexample.itemActivity.RxConcatMapActivity;
 import com.xk.rxexample.itemActivity.RxCreateActivity;
+import com.xk.rxexample.itemActivity.RxDistinctActivity;
+import com.xk.rxexample.itemActivity.RxDoOnNextActivity;
+import com.xk.rxexample.itemActivity.RxFilterActivity;
 import com.xk.rxexample.itemActivity.RxFlatMapActivity;
+import com.xk.rxexample.itemActivity.RxJustActivity;
 import com.xk.rxexample.itemActivity.RxMapActivity;
+import com.xk.rxexample.itemActivity.RxSingleActivity;
+import com.xk.rxexample.itemActivity.RxZipActivity;
 
 import java.util.ArrayList;
 
@@ -62,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         data.add(new OperatorModel(getString(R.string.rx_just),"just操作符，和RxJava 1.x 没有什么区别，就是接受一个可变参数，依次发送"));
         data.add(new OperatorModel(getString(R.string.rx_single),"顾名思义，Single只会接收一个参数" +
                 "而SingleObserver只会调用onError或者onSuccess"));
-        data.add(new OperatorModel(getString(R.string.rx_concat),"连接操作符，可接受Observable的可变参数，或者Observable的集合"));
+        data.add(new OperatorModel(getString(R.string.rx_concat),"连接操作符，可接受Observable的可变参数，或者Observable的集合,Observable.concat只接受相同泛型的参数"));
         data.add(new OperatorModel(getString(R.string.rx_distinct),"去重操作符，其实就是简单的去重"));
         data.add(new OperatorModel(getString(R.string.rx_buffer),"buffer(count, skip)` 从定义就差不多能看出作用了，将 observable 中的数据按 skip（步长）分成最长不超过 count 的 buffer，然后生成一个 observable"));
         data.add(new OperatorModel(getString(R.string.rx_debounce),"过滤掉发射速率过快的数据项"));
@@ -93,13 +100,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, RxConcatMapActivity.class));
                 break;
             case 4:
-              //  startActivity(new Intent(getActivity(), RxZipActivity.class));
+                startActivity(new Intent(this, RxZipActivity.class));
                 break;
             case 5:
-               // startActivity(new Intent(getActivity(), RxDoOnNextActivity.class));
+                startActivity(new Intent(this, RxDoOnNextActivity.class));
                 break;
             case 6:
-              //  startActivity(new Intent(getActivity(), RxFilterActivity.class));
+                startActivity(new Intent(this, RxFilterActivity.class));
                 break;
             case 7:
               //  startActivity(new Intent(getActivity(), RxSkipActivity.class));
@@ -114,16 +121,16 @@ public class MainActivity extends AppCompatActivity {
               //  startActivity(new Intent(getActivity(), RxIntervalActivity.class));
                 break;
             case 11:
-               // startActivity(new Intent(getActivity(), RxJustActivity.class));
+                startActivity(new Intent(this, RxJustActivity.class));
                 break;
             case 12:
-              //  startActivity(new Intent(getActivity(), RxSingleActivity.class));
+                startActivity(new Intent(this, RxSingleActivity.class));
                 break;
             case 13:
-               // startActivity(new Intent(getActivity(), RxConcatActivity.class));
+                startActivity(new Intent(this, RxConcatActivity.class));
                 break;
             case 14:
-              //  startActivity(new Intent(getActivity(), RxDistinctActivity.class));
+               startActivity(new Intent(this, RxDistinctActivity.class));
                 break;
             case 15:
               //  startActivity(new Intent(getActivity(), RxBufferActivity.class));
