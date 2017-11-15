@@ -27,6 +27,16 @@
         <activity android:name=".itemActivity.RxSingleActivity"    />
         <activity android:name=".itemActivity.RxDistinctActivity"    />
         <activity android:name=".itemActivity.RxFilterActivity"    />
+        <activity android:name=".itemActivity.RxTimerActivity"    />
+        <activity android:name=".itemActivity.RxIntervalActivity"    />
+        <activity android:name=".itemActivity.RxSkipActivity"    />
+        <activity android:name=".itemActivity.RxTakeActivity"    />
+        <activity android:name=".itemActivity.RxLastActivity"    />
+        <activity android:name=".itemActivity.RxDebounceActivity"    />
+        <activity android:name=".itemActivity.RxMergeActivity"    />
+        <activity android:name=".itemActivity.RxScanActivity"    />
+        <activity android:name=".itemActivity.RxReduceActivity"    />
+        <activity android:name=".itemActivity.RxCompletableActivity"    />
     </application>
 
 </manifest>

@@ -9,16 +9,26 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.xk.rxexample.itemActivity.RxCompletableActivity;
 import com.xk.rxexample.itemActivity.RxConcatActivity;
 import com.xk.rxexample.itemActivity.RxConcatMapActivity;
 import com.xk.rxexample.itemActivity.RxCreateActivity;
+import com.xk.rxexample.itemActivity.RxDebounceActivity;
 import com.xk.rxexample.itemActivity.RxDistinctActivity;
 import com.xk.rxexample.itemActivity.RxDoOnNextActivity;
 import com.xk.rxexample.itemActivity.RxFilterActivity;
 import com.xk.rxexample.itemActivity.RxFlatMapActivity;
+import com.xk.rxexample.itemActivity.RxIntervalActivity;
 import com.xk.rxexample.itemActivity.RxJustActivity;
+import com.xk.rxexample.itemActivity.RxLastActivity;
 import com.xk.rxexample.itemActivity.RxMapActivity;
+import com.xk.rxexample.itemActivity.RxMergeActivity;
+import com.xk.rxexample.itemActivity.RxReduceActivity;
+import com.xk.rxexample.itemActivity.RxScanActivity;
 import com.xk.rxexample.itemActivity.RxSingleActivity;
+import com.xk.rxexample.itemActivity.RxSkipActivity;
+import com.xk.rxexample.itemActivity.RxTakeActivity;
+import com.xk.rxexample.itemActivity.RxTimerActivity;
 import com.xk.rxexample.itemActivity.RxZipActivity;
 
 import java.util.ArrayList;
@@ -76,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
         data.add(new OperatorModel(getString(R.string.rx_defer),"就是在每次订阅的时候就会创建一个新的 Observable"));
         data.add(new OperatorModel(getString(R.string.rx_last),"取出最后一个值，参数是没有值的时候的默认值"));
         data.add(new OperatorModel(getString(R.string.rx_merge),"将多个Observable合起来，接受可变参数，也支持使用迭代器集合"));
-        data.add(new OperatorModel(getString(R.string.rx_reduce),"就是一次用一个方法处理一个值，可以有一个seed作为初始值"));
-        data.add(new OperatorModel(getString(R.string.rx_scan),"和上面的reduce差不多，区别在于reduce()只输出结果，而scan()会将过程中每一个结果输出"));
+        data.add(new OperatorModel(getString(R.string.rx_reduce),"就是一次用一个方法处理一个值，可以有一个seed作为初始值,只会将最终结果作为事件发送"));
+        data.add(new OperatorModel(getString(R.string.rx_scan),"和上面的reduce差不多，区别在于reduce()只输出结果，而scan()会将过程中每一个结果作为事件发送"));
         data.add(new OperatorModel(getString(R.string.rx_window),"按照时间划分窗口，将数据发送给不同的Observable"));
         data.add(new OperatorModel(getString(R.string.rx_PublishSubject),"onNext() 会通知每个观察者，仅此而已"));
         data.add(new OperatorModel(getString(R.string.rx_AsyncSubject),"在调用 onComplete() 之前，除了 subscribe() 其它的操作都会被缓存，在调用 onComplete() 之后只有最后一个 onNext() 会生效"));
@@ -109,16 +119,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, RxFilterActivity.class));
                 break;
             case 7:
-              //  startActivity(new Intent(getActivity(), RxSkipActivity.class));
+                startActivity(new Intent(this, RxSkipActivity.class));
                 break;
             case 8:
-             //   startActivity(new Intent(getActivity(), RxTakeActivity.class));
+                startActivity(new Intent(this, RxTakeActivity.class));
                 break;
             case 9:
-             //   startActivity(new Intent(getActivity(), RxTimerActivity.class));
+               startActivity(new Intent(this, RxTimerActivity.class));
                 break;
             case 10:
-              //  startActivity(new Intent(getActivity(), RxIntervalActivity.class));
+               startActivity(new Intent(this, RxIntervalActivity.class));
                 break;
             case 11:
                 startActivity(new Intent(this, RxJustActivity.class));
@@ -136,22 +146,22 @@ public class MainActivity extends AppCompatActivity {
               //  startActivity(new Intent(getActivity(), RxBufferActivity.class));
                 break;
             case 16:
-               // startActivity(new Intent(getActivity(), RxDebounceActivity.class));
+                startActivity(new Intent(this, RxDebounceActivity.class));
                 break;
             case 17:
                // startActivity(new Intent(getActivity(), RxDeferActivity.class));
                 break;
             case 18:
-               // startActivity(new Intent(getActivity(), RxLastActivity.class));
+                startActivity(new Intent(this, RxLastActivity.class));
                 break;
             case 19:
-              //  startActivity(new Intent(getActivity(), RxMergeActivity.class));
+              startActivity(new Intent(this, RxMergeActivity.class));
                 break;
             case 20:
-               // startActivity(new Intent(getActivity(), RxReduceActivity.class));
+                startActivity(new Intent(this, RxReduceActivity.class));
                 break;
             case 21:
-               // startActivity(new Intent(getActivity(), RxScanActivity.class));
+               startActivity(new Intent(this, RxScanActivity.class));
                 break;
             case 22:
               //  startActivity(new Intent(getActivity(), RxWindowActivity.class));
@@ -166,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
              //   startActivity(new Intent(getActivity(), RxBehaviorSubjectActivity.class));
                 break;
             case 26:
-             //   startActivity(new Intent(getActivity(), RxCompletableActivity.class));
+                startActivity(new Intent(this, RxCompletableActivity.class));
                 break;
             case 27:
                // startActivity(new Intent(getActivity(), RxFlowableActivity.class));
