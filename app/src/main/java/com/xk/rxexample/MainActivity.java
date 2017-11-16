@@ -9,6 +9,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.xk.admin.rxbuslibrary.RxBus;
+import com.xk.rxexample.itemActivity.RxBusActivity;
 import com.xk.rxexample.itemActivity.RxCompletableActivity;
 import com.xk.rxexample.itemActivity.RxConcatActivity;
 import com.xk.rxexample.itemActivity.RxConcatMapActivity;
@@ -33,6 +35,8 @@ import com.xk.rxexample.itemActivity.RxZipActivity;
 
 import java.util.ArrayList;
 
+import io.reactivex.functions.Consumer;
+
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private RecyclerView mRecyclerView;
@@ -56,6 +60,17 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         mRecyclerView.setAdapter(adapter);
+        RxBus.getDefault().toObservable().subscribe(new Consumer<Object>() {
+            @Override
+            public void accept(Object o) throws Exception {
+                System.out.println(o.toString());
+            }
+        }, new Consumer<Throwable>() {
+            @Override
+            public void accept(Throwable throwable) throws Exception {
+                System.out.println(throwable.toString());
+            }
+        });
 }
     protected void fillData() {
         data = new ArrayList<>();
@@ -94,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
         data.add(new OperatorModel(getString(R.string.rx_BehaviorSubject),"BehaviorSubject 的最后一次 onNext() 操作会被缓存，然后在 subscribe() 后立刻推给新注册的 Observer"));
         data.add(new OperatorModel(getString(R.string.rx_Completable),"只关心结果，也就是说 Completable 是没有 onNext 的，要么成功要么出错，不关心过程，在 subscribe 后的某个时间点返回结果"));
         data.add(new OperatorModel(getString(R.string.rx_Flowable),"专用于解决背压问题"));
+        data.add(new OperatorModel(getString(R.string.rx_RxBus),"简单版本RxBus"));
     }
     protected void itemClick(int position) {
         switch (position) {
@@ -181,6 +197,10 @@ public class MainActivity extends AppCompatActivity {
             case 27:
                // startActivity(new Intent(getActivity(), RxFlowableActivity.class));
                 break;
+               case 28:
+                startActivity(new Intent(this, RxBusActivity.class));
+                break;
         }
     }
+
 }

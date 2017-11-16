@@ -37,6 +37,7 @@
         <activity android:name=".itemActivity.RxScanActivity"    />
         <activity android:name=".itemActivity.RxReduceActivity"    />
         <activity android:name=".itemActivity.RxCompletableActivity"    />
+        <activity android:name=".itemActivity.RxBusActivity"    />
     </application>
 
 </manifest>
